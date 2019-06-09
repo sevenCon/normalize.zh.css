@@ -1,0 +1,429 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* modified by quanlincong , date: 2019-06-07 */
+
+/* Document
+   ========================================================================== */
+/**
+   * 1. Correct the line height in all browsers.
+   * 2. Prevent adjustments of font size after orientation changes in iOS.
+   * 1. 纠正不同浏览器下, 不同操作系统, 应用的字体不一样, 而行高不一样的问题
+   * 2. iOS 横屏字体变大问题. 这个问题在safari的移动
+   */
+html {
+    line-height: 1.15;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
+}
+
+/* Sections
+     ========================================================================== */
+
+/**
+   * Remove the margin in all browsers.
+   * chrome , firefox 的body默认会有8px的margin
+   */
+body {
+    margin: 0;
+}
+
+/**
+   * Render the `main` element consistently in IE.
+   * main 标签在IE 9,10,11上的支持都不够完整, 这个会被IE区分为unknown 的element, 尽管可以编写样式和使用
+   * 没有任何样式被认为是inline级别的属性对待. 通过display: block; 可以有效的适配使用
+   */
+
+main {
+    display: block;
+}
+
+/**
+   * Correct the font size and margin on `h1` elements within `section` and
+   * `article` contexts in Chrome, Firefox, and Safari.
+   * 因为html5语义化的实现, section标签下面的h1标签的字体会被缩小, 这个是由html5规定的语义内容, 作用
+   * 当然是为了更好的让section这个标签更好的表现为一种目录, 嵌套的子目录标题天然变小的意思. 
+   * article 标签也是一样的意思
+   * ie9及以上的浏览器 会把main等h5的标签当做内联元素来处理
+   * ie9以下的需要document.createElement("main") 来手动shim
+   */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/* Grouping content
+     ========================================================================== */
+
+/**
+   * 1. Add the correct box sizing in Firefox.
+   * 2. Show the overflow in Edge and IE.
+   * 1. 给firefox 添加正确的box sizing ,旧版的ff, hr 默认样式 box-sizing:border-box; height:2px; 这个在firefox的67版本 , 已经是的content-box, height 也没有默认的2px的高度了.
+   * 2. edge/ie, 显示overflow:visible , ie/edge在hr具有伪元素的情况下, 会隐藏伪元素的显示
+   */
+
+hr {
+    box-sizing: content-box;
+    /* 1 */
+    height: 0;
+    /* 1 */
+    overflow: visible;
+    /* 2 */
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   * 1. 纠正在所有的浏览器中字体的继承和缩放, pre预格式化在浏览器保持一致, 2个monospace其实对pre的hack写法
+   * https://github.com/necolas/normalize.css/issues/695
+   * 2. 奇数em字体大小统一???
+   */
+
+pre {
+    font-family: monospace, monospace;
+    /* 1 */
+    font-size: 1em;
+    /* 2 */
+}
+
+/* Text-level semantics
+     ========================================================================== */
+
+/**
+   * Remove the gray background on active links in IE 10.
+   * ie 10 点击a标签, active状态会有个灰色的背景
+   */
+
+a {
+    background-color: transparent;
+}
+
+/**
+   * 1. Remove the bottom border in Chrome 57-
+   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+   * abbr标签,作用是缩写, 具有title属性的标签在FF, chrome 57-, 会有border-bottom:1px dotted的下划线,
+   */
+
+abbr[title] {
+    border-bottom: none;
+    /* 1 */
+    text-decoration: underline;
+    /* 2 */
+    text-decoration: underline dotted;
+    /* 2 */
+}
+
+/**
+   * Add the correct font weight in Chrome, Edge, and Safari.
+   * bolder 和lighter都是相对于父级元素来说, 加粗或者加细, chrome默认是bold
+   * 
+   */
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   * 1. 预格式化文本, like, pre, font-family: monospace, monospace; double monospace的pre文本会
+   * 字体会变大, 这个hack baidu上找不到具体的解释. 
+   */
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    /* 1 */
+    font-size: 1em;
+    /* 2 */
+}
+
+/**
+   * Add the correct font size in all browsers.
+   * 这个尺寸是相对于浏览器设置的medium的字体的大小而言的, 和html, 或者:root设置的元素不同, 不同浏览器之间的
+   * 尺寸相对的不同. 
+   */
+
+small {
+    font-size: 80%;
+}
+
+/**
+   * Prevent `sub` and `sup` elements from affecting the line height in
+   * all browsers.
+   * sub , sup, 标签实际上是用的vertical-align:sub/sup, 容易受当前的行框盒子影响
+   */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+/* Embedded content
+     ========================================================================== */
+
+/**
+   * Remove the border on images inside links in IE 10.
+   * ie 10 的图片会有border的样式
+   */
+
+img {
+    border-style: none;
+}
+
+/* Forms
+     ========================================================================== */
+
+/**
+   * 1. Change the font styles in all browsers.
+   * 2. Remove the margin in Firefox and Safari.
+   * 在各个浏览器中,都会有表单替换元素的默认代理样式, 这里需要重置, 值得一说的, 表单替换的元素不会继承
+   * 行高, line-height, text-rendering, font等属性会有浏览器代理属性.
+   */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    line-height: 1.15;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+}
+
+/**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+
+button,
+input {
+    /* 1 */
+    overflow: visible;
+}
+
+/**
+   * Remove the inheritance of text transform in Edge, Firefox, and IE.
+   * 1. Remove the inheritance of text transform in Firefox.
+   * 1. firefox 下的button, select, 会继承父元素的text-transform属性
+   */
+
+button,
+select {
+    /* 1 */
+    text-transform: none;
+}
+
+/**
+   * Correct the inability to style clickable types in iOS and Safari.
+   * 疑问: 在firefox 是version 67 的版本, 在浏览器代理的默认样式button的border: 7px 1px 3px 7px; padding:0 8px;
+   * 而在chrome 浏览器代理的默认样式是border:1px solid rgb(186, 186, 186); padding: 7px 1px 2px 7px;
+   * 为什么不normalize 这个差异呢?
+   */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+/**
+   * Remove the inner border and padding in Firefox.
+   */
+
+/* 
+    * 这里是去除按钮点击选中的时候出现的虚线, select 选择框选中时的虚线(ff特有), outline, 在chrome 
+    * 一般是设置outline:0; , 而在firefox, 是用特有的
+    * 伪元素::moz-focus-inner, 并且设置border-style:none; 去除边框.
+    */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    /* 
+     * border-style: none; 直接定义无边框
+     */
+    padding: 0;
+}
+
+/**
+   * Restore the focus styles unset by the previous rule.
+   */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+/**
+   * Correct the padding in Firefox.
+   * 纠正firefox的padding值, 在version 67的firefox 已经是 padding: 0.35em 0.75em 0.625em;
+   */
+
+fieldset {
+    padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+   * 1. Correct the text wrapping in Edge and IE.
+   * 2. Correct the color inheritance from `fieldset` elements in IE.
+   * 3. Remove the padding so developers are not caught out when they zero out
+   *    `fieldset` elements in all browsers.
+   * 1. 关于第一点, 请看https://github.com/necolas/normalize.css/pull/536
+   * 2. 纠正fieldset在ie下的颜色继承问题
+   * 3. 删除padding值 
+   */
+
+legend {
+    box-sizing: border-box;
+    /* 1 */
+    color: inherit;
+    /* 2 */
+    display: table;
+    /* 1 */
+    max-width: 100%;
+    /* 1 */
+    padding: 0;
+    /* 3 */
+    white-space: normal;
+    /* 1 */
+}
+
+/**
+   * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+   * 添加浏览器中正确的对齐方式, progress 的正确对齐方式, 在chrome v74, firefox v67中都是
+   * vertical-align: -0.2em;,
+   */
+
+progress {
+    vertical-align: baseline;
+}
+
+/**
+   * Remove the default vertical scrollbar in IE 10+.
+   * ie 10有垂直的滚动条
+   */
+
+textarea {
+    overflow: auto;
+}
+
+/**
+   * 1. Add the correct box sizing in IE 10.
+   * 2. Remove the padding in IE 10.
+   * ie 10下有默认的padding
+   */
+
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    /* 1 */
+    padding: 0;
+    /* 2 */
+}
+
+/**
+   * Correct the cursor style of increment and decrement buttons in Chrome.
+   * 纠正在chrome中的加减号的高度问题, chrome v74 中没发现什么问题.
+   */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
+   * 1. Correct the odd appearance in Chrome and Safari.
+   * 2. Correct the outline style in Safari.
+   * chrome macos 下会有奇怪的border
+   */
+
+[type="search"] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    outline-offset: -2px;
+    /* 2 */
+}
+
+/**
+   * Remove the inner padding in Chrome and Safari on macOS.
+   * 在chrome 下的
+   */
+
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+   * 1. Correct the inability to style clickable types in iOS and Safari.
+   * 2. Change font properties to `inherit` in Safari.
+   */
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+}
+
+/* Interactive
+     ========================================================================== */
+
+/*
+   * Add the correct display in Edge, IE 10+, and Firefox.
+   */
+
+details {
+    display: block;
+}
+
+/*
+   * Add the correct display in all browsers.
+   * 默认是block
+   */
+
+summary {
+    display: list-item;
+}
+
+/* Misc
+     ========================================================================== */
+
+/**
+   * Add the correct display in IE 10+.
+   * template 元素应该隐藏
+   */
+
+template {
+   display: none;
+}
+
+/**
+   * Add the correct display in IE 10.
+   * 具有hidden 属性的应该被隐藏, ie10 中显示出来了
+   */
+
+[hidden] {
+    display: none;
+}
